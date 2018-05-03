@@ -11,7 +11,7 @@ tail(Activity)
 #3. Calculate and report the mean and median of the total number of steps taken per day
 
 Steps <- aggregate(steps ~ date, Activity, sum, na.rm = TRUE)
-Steps
+#Steps
 hist(Steps$steps)
 mean(Steps$steps)
 median(Steps$steps)
@@ -21,7 +21,7 @@ median(Steps$steps)
 #2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 Step_Avg_TI <- aggregate(steps ~ interval, Activity, mean, na.rm = TRUE)
-Steps_Avg_TI
+#Step_Avg_TI
 Step_Avg_TI[,2] <- round(Step_Avg_TI[,2], 6)
 Max_steps <- round(max(Step_Avg_TI$steps), 6)
 Max_interval <- Step_Avg_TI[,Step_Avg_TI$steps == Max_steps]
@@ -29,7 +29,6 @@ n <- nrow(Step_Avg_TI)
 Max_interval <- Step_Avg_TI[which.max(Step_Avg_TI$steps),]$interval
 plot(Step_Avg_TI$interval, Step_Avg_TI$steps, type = "l", xlab = "Various intervals", ylab = "Average number of steps", main = "Average number of steps taken, averaged across all days")
 abline( v = Max_interval, col = "red")
-Max_steps
 Max_interval
 
 
@@ -62,7 +61,7 @@ cat("Total ",count, "NA values were filled.\n\r")
 
   
 Steps2<-aggregate(steps~date,data=activityFilled,sum)
-Steps2
+#Steps2
 hist(Steps2$steps)
 mean(Steps2$steps)
 median(Steps2$steps)
@@ -70,7 +69,7 @@ median(Steps2$steps)
 ##Are there differences in activity patterns between weekdays and weekends?
 #For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.
 
-# 1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
+# 1. Create a new factor variable in the dataset with two levels â€“ â€œweekdayâ€ and â€œweekendâ€ indicating whether a given date is a weekday or weekend day.
 # 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 Activity_Filled$day <- ifelse(as.POSIXlt(as.Date(Activity_Filled$date))$wday%%6==0,
