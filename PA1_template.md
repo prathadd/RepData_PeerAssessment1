@@ -56,7 +56,7 @@ Steps <- aggregate(steps ~ date, Activity, sum, na.rm = TRUE)
 hist(Steps$steps)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 * 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -93,7 +93,7 @@ plot(Step_Avg_TI$interval, Step_Avg_TI$steps, type = "l", xlab = "Various interv
 abline( v = Max_interval, col = "red")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](figure-html/unnamed-chunk-7-1.png)<!-- -->
 
 * 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -153,7 +153,8 @@ cat("Total ",count, "NA values were filled.\n\r")
 
 ```
 ## Total  2304 NA values were filled.
-## 
+## 
+
 ```
 
 ```r
@@ -162,7 +163,7 @@ Steps2<-aggregate(steps~date,data=Activity_Filled,sum)
 hist(Steps2$steps)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 ```r
 mean(Steps2$steps)
@@ -184,7 +185,7 @@ The Mean is same in both cases, but there is slight difference in Median values.
 ## Are there differences in activity patterns between weekdays and weekends?
 For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.
 
-* 1. Create a new factor variable in the dataset with two levels ñ ìweekdayî and ìweekendî indicating whether a given date is a weekday or weekend day.
+* 1. Create a new factor variable in the dataset with two levels ‚Äì ‚Äúweekday‚Äù and ‚Äúweekend‚Äù indicating whether a given date is a weekday or weekend day.
 
 ```r
 Activity_Filled$day <- ifelse(as.POSIXlt(as.Date(Activity_Filled$date))$wday%%6==0,
@@ -200,7 +201,7 @@ library(lattice)
 xyplot(steps~interval|factor(day),data=Step_Avg_TI2,aspect=1/2,type="l")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+![](figure-html/unnamed-chunk-14-1.png)<!-- -->
 
 
 
