@@ -4,9 +4,11 @@ output:
   html_document:
     keep_md: true
 ---
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 ## Loading and preprocessing the data
-* Reading the data from C5W2(Course-5-Week-2) folder
+* Reading the data 
 ```{r echo = TRUE}
 Activity = read.csv("activity.csv", header = TRUE)
 ```

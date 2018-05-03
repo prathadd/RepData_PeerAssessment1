@@ -6,7 +6,7 @@ output:
 ---
 
 ## Loading and preprocessing the data
-* Reading the data from C5W2(Course-5-Week-2) folder
+* Reading the data 
 
 ```r
 Activity = read.csv("activity.csv", header = TRUE)
